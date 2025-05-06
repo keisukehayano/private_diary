@@ -125,6 +125,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -132,7 +136,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ロギング設定
 LOGGING = {
-    'version': 1,
+    'version': 1,  # 1固定
     'disable_existing_loggers': False,
 
     # ロガーの設定
@@ -148,6 +152,7 @@ LOGGING = {
             'level': 'DEBUG',
         },
     },
+
     # ハンドラの設定
     'handlers': {
         'console': {
@@ -157,7 +162,7 @@ LOGGING = {
         },
     },
 
-    # フォーマッターの設定
+    # フォーマッタの設定
     'formatters': {
         'dev': {
             'format': '\t'.join([
